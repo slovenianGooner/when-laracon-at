@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/laracon.css') }}">
 
+    {{ Vite::useBuildDirectory('build/css') }}
     @vite('resources/css/app.css')
 </head>
 <body class="bg-noise min-h-screen bg-red-600 font-sans text-white antialiased">
