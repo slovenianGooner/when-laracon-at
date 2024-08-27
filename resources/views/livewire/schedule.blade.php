@@ -7,7 +7,8 @@
             <div class="relative" x-data="{ open: false }" x-cloak>
                 <button class="border-white border px-6 py-2 rounded-lg w-64 text-left"
                         x-on:click="open = !open">{{ $timezone }}</button>
-                <div class="w-96 border rounded-lg mt-2 absolute z-[10] bg-red-600 h-64 overflow-y-auto" x-show="open">
+                <div class="lg:w-96 border rounded-lg mt-2 absolute z-[10] bg-red-600 h-64 overflow-y-auto"
+                     x-show="open">
                     @foreach($timezones as $selectTimezone)
                         <button class="block px-6 py-2 hover:bg-red-600/50 w-full text-left"
                                 x-on:click="open = false"

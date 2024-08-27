@@ -12,7 +12,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-noise min-h-screen bg-red-600 font-sans text-white antialiased">
-<div class="w-screen h-screen flex justify-center items-center">
+<div class="w-screen min-h-screen flex justify-center items-center">
     {{ $slot }}
 </div>
 </body>
