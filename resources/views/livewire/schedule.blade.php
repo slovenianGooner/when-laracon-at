@@ -8,6 +8,7 @@
                 <button class="border-white border px-6 py-2 rounded-lg w-96 text-left"
                         x-on:click="open = !open">{{ $timezone }}</button>
                 <div class="lg:w-96 border rounded-lg mt-2 absolute z-[10] bg-red-600"
+                     x-on:click.outside="open = false"
                      x-show="open">
                     <div class="px-2 py-2">
                         <input type="text"
