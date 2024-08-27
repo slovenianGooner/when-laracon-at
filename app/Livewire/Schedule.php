@@ -3,8 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Talk;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
 use Livewire\Component;
