@@ -17,7 +17,7 @@ class Schedule extends Component
     public function render(): View
     {
         $talks = Talk::all()->each(function ($talk) {
-            $talk->formatted_time = $talk->time->setTimezone($this->timezone)->format('H:i');
+            $talk->formatted_time = $talk->time->setTimezone($this->timezone)->format('g:ia');
         })->groupBy('day');
 
         $timezones = [

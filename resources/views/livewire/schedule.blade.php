@@ -4,16 +4,24 @@
             Laracon Schedule
         </h1>
         <div class="mt-4">
-            <div class="relative" x-data="{ open: false }" x-cloak>
-                <button class="border-white border px-6 py-2 rounded-lg w-64 text-left"
+            <div class="relative" x-data="{ open: false, searchString: '' }" x-cloak>
+                <button class="border-white border px-6 py-2 rounded-lg w-96 text-left"
                         x-on:click="open = !open">{{ $timezone }}</button>
-                <div class="lg:w-96 border rounded-lg mt-2 absolute z-[10] bg-red-600 h-64 overflow-y-auto"
+                <div class="lg:w-96 border rounded-lg mt-2 absolute z-[10] bg-red-600"
                      x-show="open">
-                    @foreach($timezones as $selectTimezone)
-                        <button class="block px-6 py-2 hover:bg-red-600/50 w-full text-left"
-                                x-on:click="open = false"
-                                wire:click="selectTimezone('{{ $selectTimezone }}')">{{ $selectTimezone }}</button>
-                    @endforeach
+                    <div class="px-2 py-2">
+                        <input type="text"
+                               class="bg-transparent focus:outline-none border border-white rounded-lg w-full focus:ring-0 focus:border-white placeholder-white"
+                               placeholder="Find your timezone..." x-model="searchString"/>
+                    </div>
+                    <div class="h-64 overflow-y-auto">
+                        @foreach($timezones as $selectTimezone)
+                            <button class="block px-6 py-2 hover:bg-white/20 w-full text-left"
+                                    x-on:click="open = false; searchString = ''"
+                                    x-show="'{{ $selectTimezone }}'.includes(searchString)"
+                                    wire:click="selectTimezone('{{ $selectTimezone }}')">{{ $selectTimezone }}</button>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
