@@ -4,11 +4,17 @@
             Laracon Schedule
         </h1>
         <div class="mt-4">
-            <select name="timezone" wire:model.live="timezone" class="border-white rounded-md px-4 py-2 bg-transparent focus:outline-none focus:ring-0 focus:border-white appearance-none bg-none">
-                @foreach($timezones as $selectTimezone)
-                    <option value="{{ $selectTimezone }}">{{ $selectTimezone }}</option>
-                @endforeach
-            </select>
+            <div class="relative" x-data="{ open: false }" x-cloak>
+                <button class="border-white border px-6 py-2 rounded-lg w-64 text-left"
+                        x-on:click="open = !open">{{ $timezone }}</button>
+                <div class="w-96 border rounded-lg mt-2 absolute z-[10] bg-red-600 h-64 overflow-y-auto" x-show="open">
+                    @foreach($timezones as $selectTimezone)
+                        <button class="block px-6 py-2 hover:bg-red-600/50 w-full text-left"
+                                x-on:click="open = false"
+                                wire:click="selectTimezone('{{ $selectTimezone }}')">{{ $selectTimezone }}</button>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 

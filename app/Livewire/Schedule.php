@@ -379,4 +379,9 @@ class Schedule extends Component
             'timezones' => $timezones,
         ]);
     }
+
+    public function selectTimezone($timezone): void
+    {
+        $this->timezone = $timezone;
+    }
 }
